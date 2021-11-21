@@ -1,5 +1,12 @@
+- install tools (via homebrew, assuming on macOS)
+```
+➜  ~ brew install kubectl doctl
+➜  ~ curl -s -L "https://github.com/loft-sh/vcluster/releases/latest" | sed -nE 's!.*"([^"]*vcluster-darwin-amd64)".*!https://github.com\1!p' | xargs -n 1 curl -L -o vcluster && chmod +x vcluster;
+➜  ~ sudo mv vcluster /usr/local/bin;
+```
+
 - start kubernetes cluster in DO
-```shell
+```
 ➜  ~ doctl auth init
 Please authenticate doctl for use with your DigitalOcean account. You can generate a token in the control panel at https://cloud.digitalocean.com/account/api/tokens
 
@@ -40,7 +47,7 @@ kube-system        kube-proxy-v7gkt                                      1/1    
 ```
 
 - create vcluster
-```shell
+```
 ➜  ~ vcluster create vcluster-1 -n host-namespace-1
 [info]   Creating namespace host-namespace-1
 [info]   execute command: helm upgrade vcluster-1 vcluster --repo https://charts.loft.sh --version 0.4.4 --kubeconfig /var/folders/5y/m0mtm18x78l_yqr0jb4tsl7h0000gq/T/624956454 --namespace host-namespace-1 --install --repository-config='' --values /var/folders/5y/m0mtm18x78l_yqr0jb4tsl7h0000gq/T/231038797
@@ -66,3 +73,5 @@ do-kubernetes-challenge-default-pool-ujrff   Ready    <none>   92s   v1.21.5+k3s
 NAMESPACE     NAME                       READY   STATUS    RESTARTS   AGE
 kube-system   coredns-7448499f4d-ggs6w   1/1     Running   0          111s
 ```
+
+- awesome done!
