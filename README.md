@@ -1,3 +1,9 @@
+# vcluster setup on Kubeneres
+
+>Virtual clusters are fully working Kubernetes clusters that run on top of other Kubernetes clusters. Compared to fully separate "real" clusters, virtual clusters do not have their own node pools. Instead, they are scheduling workloads inside the underlying cluster while having their own separate control plane.
+
+## steps
+
 - install tools (via homebrew, assuming on macOS)
 ```
 ➜  ~ brew install kubectl doctl
